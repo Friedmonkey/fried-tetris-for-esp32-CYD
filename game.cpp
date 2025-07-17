@@ -474,7 +474,7 @@ void Game::Reset()
 }
 
 
-int GetRandomValue(int min, int max)
+int Game::GetRandomValue(int min, int max)
 {
     static std::mt19937 gen(std::random_device{}()); // static so seeded once
     std::uniform_int_distribution<> dist(min, max);
