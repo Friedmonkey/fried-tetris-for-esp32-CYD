@@ -1,5 +1,6 @@
 #pragma once
 
+#include <TFT_eSPI.h>
 #include "colors.h"
 
 #define BufferRows 3

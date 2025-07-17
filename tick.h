@@ -4,8 +4,8 @@
 
 inline void loop_tick()
 {
-		if (pGame->ShouldMoveBlockDown())
+		if (ShouldMoveBlockDown())
 		{
-			pGame->MoveBlockDown();
+			MoveBlockDown();
 		}
 }

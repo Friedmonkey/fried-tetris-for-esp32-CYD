@@ -23,5 +23,6 @@ inline void loop_draw(TFT_eSprite &framebuffer)
 {
   framebuffer.fillSprite(TFT_DARKCYAN); // clear previous frame
   grid.Draw(framebuffer);
+  currentBlock.Draw(int &spr);
   framebuffer.pushSprite(0, 0);      // now push entire buffer to screen
 }

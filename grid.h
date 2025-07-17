@@ -1,7 +1,8 @@
 #pragma once
+
 #include "settings.h"
 // #include "PowerupType.h"
-// #include "Position.h"
+#include "Position.h"
 
 class Grid
 {
