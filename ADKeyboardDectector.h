@@ -5,35 +5,50 @@
 //connect gpio27 to out
 #define INPUT_PIN 27
 
-enum ADKEY
+enum KEY
 {
-  ADKEY_none,
-  ADKEY_up,
-  ADKEY_down,
-  ADKEY_left,
-  ADKEY_right,
-  ADKEY_select,
+  KEY_NONE,
+  KEY_UP,
+  KEY_DOWN,
+  KEY_LEFT,
+  KEY_RIGHT,
+  KEY_SELECT,
 };
 
-inline ADKEY get_pressed_key()
+
+static bool IsKeyDown(KEY key)
+{
+  int val = analogRead(INPUT_PIN);
+
+  switch (key)
+  {
+    case KEY_UP: return (val >= 550 && val <= 580);
+    case KEY_DOWN: return (val >= 1250 && val <= 1300);
+    case KEY_LEFT: return (val < 10);
+    case KEY_RIGHT: return (val >= 2020 && val <= 2060);
+    case KEY_SELECT: return (val >= 3180 && val <= 3210);
+  }
+}
+
+static KEY GetKeyPressed()
 {
   int val = analogRead(INPUT_PIN);
 
   if (val > 4000) {
-    return ADKEY_none;
+    return KEY_NONE;
   } else if (val < 10) {
-    return ADKEY_left;
+    return KEY_LEFT;
   } else if (val >= 550 && val <= 580) {
-    return ADKEY_up;
+    return KEY_UP;
   } else if (val >= 1250 && val <= 1300) {
-    return ADKEY_down;
+    return KEY_DOWN;
   } else if (val >= 2020 && val <= 2060) {
-    return ADKEY_right;
+    return KEY_RIGHT;
   } else if (val >= 3180 && val <= 3210) {
-    return ADKEY_select;
+    return KEY_SELECT;
   } else {
     Serial.print("Unknown value: ");
     Serial.println(val);
-    return ADKEY_none;
+    return KEY_NONE;
   }
 }

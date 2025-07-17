@@ -4,8 +4,8 @@
 
 inline void loop_tick()
 {
-		if (ShouldMoveBlockDown())
-		{
-			MoveBlockDown();
-		}
+  if (game.ShouldMoveBlockDown())
+  {
+    game.MoveBlockDown();
+  }
 }

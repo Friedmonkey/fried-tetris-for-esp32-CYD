@@ -9,8 +9,9 @@
 
 #include "display.h"
 #include "input.h"
+#include "tick.h"
 #include "FriedPreferences.h"
-#include "game_objects.h"
+#include "game.h"
 #include "block.vlv.h"
 
 //#define FRIED_SAMPLE_RATE 16000
@@ -45,10 +46,7 @@ void setup() {
   
   prefs = FriedPreferences::init("fried_tetris_game");
 
-
-  jump_sound = load_sfx("/jump_effect.raw");
-
-  start_audio("/mario_main.raw");
+  game.Initialize();
 
   set_audio_volume(0.2f);
   set_sfx_volume(0.3f);
@@ -85,9 +83,8 @@ void loop() {
     loop_draw(framebuffer);
   }
 
-  
   if (now - lastTickTime >= TICK_INTERVAL) {
     lastTickTime = now;
-    loop_tick(framebuffer);
+    loop_tick();
   }
 }

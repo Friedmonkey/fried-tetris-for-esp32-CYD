@@ -82,7 +82,7 @@ void Grid::ClearRow(int row)
 	{
 		grid[row][column] = 0;
 
-		powerups[row][column] = BlockNormal;
+		// powerups[row][column] = BlockNormal;
 	}
 }
 
@@ -93,8 +93,8 @@ void Grid::MoveRowDown(int row, int amount)
 		grid[row + amount][column] = grid[row][column];
 		grid[row][column] = 0;
 
-		powerups[row + amount][column] = powerups[row][column];
-		powerups[row][column] = BlockNormal;
+		// powerups[row + amount][column] = powerups[row][column];
+		// powerups[row][column] = BlockNormal;
 	}
 }
 
@@ -105,8 +105,8 @@ void Grid::MoveColumnDown(int column, int startIndex, int amount)
 		grid[row + amount][column] = grid[row][column];
 		grid[row][column] = 0;
 
-		powerups[row + amount][column] = powerups[row][column];
-		powerups[row][column] = BlockNormal;
+		// powerups[row + amount][column] = powerups[row][column];
+		// powerups[row][column] = BlockNormal;
 	}
 }
 
